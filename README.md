@@ -8,7 +8,7 @@ PouchDB works great with Atom Shell. Here's how to get started.
 
 ## Installation
 
-To use PouchDb in your Atom Shell app, just download [pouchdb.js](http://pouchdb.com/guides/setup-pouchdb.html) and include it in your `index.html`:
+To use PouchDB in your Atom Shell app, just download [pouchdb.js](http://pouchdb.com/guides/setup-pouchdb.html) and include it in your `index.html`:
 
 ```html
 <script src="path/to/pouchdb.js"></script>
