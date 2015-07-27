@@ -1,6 +1,6 @@
-# pouchdb-atom-shell
+# pouchdb-electron
 
-PouchDB works great with Atom Shell. Here's how to get started.
+PouchDB works great with Electron (formerly known as Atom Shell). Here's how to get started.
 
 ## Sample app
 
@@ -8,7 +8,7 @@ PouchDB works great with Atom Shell. Here's how to get started.
 
 ## Installation
 
-To use PouchDB in your Atom Shell app, just download [pouchdb.js](http://pouchdb.com/guides/setup-pouchdb.html) and include it in your `index.html`:
+To use PouchDB in your Electron app, just download [pouchdb.js](http://pouchdb.com/guides/setup-pouchdb.html) and include it in your `index.html`:
 
 ```html
 <script src="path/to/pouchdb.js"></script>
@@ -26,4 +26,4 @@ or a WebSQL-based PouchDB:
 var db = new PouchDB('mydb', {adapter: 'websql'});
 ```
 
-Use whichever one you prefer. They both work the same, although in my experience WebSQL is slightly faster than IndexedDB in Chromium, for most use cases. (Atom Shell is based on Chromium.)
+Use whichever one you prefer. They both work the same, although in my experience WebSQL is slightly faster than IndexedDB in Chromium, for most use cases. (Electron is based on Chromium.)
