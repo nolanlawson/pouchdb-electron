@@ -2,9 +2,9 @@
 
 PouchDB works great with Electron (formerly known as Atom Shell). Here's how to get started.
 
-## Sample app
+## Demo app
 
-* ["Hello PouchDB with Electron" demo app](https://github.com/nolanlawson/hello-electron-with-pouchdb)
+* [Hello PouchDB with Electron](https://github.com/nolanlawson/hello-electron-with-pouchdb)
 
 ## Installation
 
