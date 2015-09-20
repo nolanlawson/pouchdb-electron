@@ -4,7 +4,7 @@ PouchDB works great with Electron (formerly known as Atom Shell). Here's how to 
 
 ## Sample app
 
-* ["Hello atom" with PouchDB app](https://github.com/nolanlawson/hello-atom-with-pouchdb)
+* ["Hello PouchDB with Electron" demo app](https://github.com/nolanlawson/hello-electron-with-pouchdb)
 
 ## Installation
 
@@ -13,6 +13,8 @@ To use PouchDB in your Electron app, just download [pouchdb.js](http://pouchdb.c
 ```html
 <script src="path/to/pouchdb.js"></script>
 ```
+
+(Or `npm install` or `bower install`.)
 
 Now `PouchDB` is available as a global variable. So you can create an IndexedDB-based PouchDB:
 
@@ -30,9 +32,18 @@ Use whichever one you prefer. They both work the same, although in my experience
 
 ## Using LevelDB via LevelDOWN
 
-You can also use PouchDB in a Node.js style with the LevelDB adapter, but it's a bit trickier to install compared to the IndexedDB/WebSQL adapters. It should be worth it, though, since LevelDB tends to be the fastest PouchDB adapter.
 
-Essentially you'll need to rebuild LevelDB for Electron. There is a demo of how to do so  in [Level/electron-demo](https://github.com/Level/electron-demo). Basically you will need to run this script as a `postinstall` step:
+
+You can also use PouchDB in a Node.js style with the LevelDB adapter:
+
+```js
+var PouchDB = require('pouchdb');
+var db = new PouchDB('mydb');
+```
+
+However, you will have to rebuild the LevelDB binaries for Electron. The [demo app](https://github.com/nolanlawson/hello-electron-with-pouchdb) shows how to accomplish this.
+
+Basically you will need to run this script as a `postinstall` step:
 
 ```bash
 cd node_modules/pouchdb/node_modules/leveldown
@@ -41,8 +52,4 @@ HOME=~/.electron-gyp node-gyp rebuild \
   --dist-url=https://atom.io/download/atom-shell
 ```
 
-Then you can use PouchDB over LevelDB like so:
-
-```js
-var db = new PouchDB('mydb', {adapter: 'leveldb'});
-```
+If this doesn't work on your system, you can always use the IndexedDB/WebSQL adapters instead. The performance benefit from using LevelDB is (probably) minor.
