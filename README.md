@@ -27,3 +27,19 @@ var db = new PouchDB('mydb', {adapter: 'websql'});
 ```
 
 Use whichever one you prefer. They both work the same, although in my experience WebSQL is slightly faster than IndexedDB in Chromium, for most use cases. (Electron is based on Chromium.)
+
+## Using LevelDB via LevelDOWN
+
+You can also use PouchDB in a Node.js style with the LevelDB adapter, but it's a bit trickier to install compared to the IndexedDB/WebSQL adapters (although it may offer performance improvements).
+
+Essentially you'll need to rebuild LevelDB for Electron. There is a demo of how to do so  in [Level/electron-demo](https://github.com/Level/electron-demo). Basically you will need to run this script as a `postinstall` step:
+
+```bash
+cd node_modules/pouchdb/node_modules/leveldown && HOME=~/.electron-gyp node-gyp rebuild --target=0.29.1 --arch=x64 --dist-url=https://atom.io/download/atom-shell
+```
+
+Then you can use PouchDB over LevelDB like so:
+
+```js
+var db = new PouchDB('mydb', {adapter: 'leveldb'});
+```
