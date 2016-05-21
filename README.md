@@ -46,7 +46,7 @@ However, you will have to rebuild the LevelDB binaries for Electron. The [demo a
 Basically you will need to run this script as a `postinstall` step:
 
 ```bash
-cd node_modules/pouchdb/node_modules/leveldown
+cd node_modules/leveldown
 HOME=~/.electron-gyp node-gyp rebuild \
   --target=0.29.1 --arch=x64 \
   --dist-url=https://atom.io/download/atom-shell
