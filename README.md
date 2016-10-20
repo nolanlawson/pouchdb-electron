@@ -14,7 +14,11 @@ To use PouchDB in your Electron app, just download [pouchdb.js](http://pouchdb.c
 <script src="path/to/pouchdb.js"></script>
 ```
 
-(Or `npm install` or `bower install`.)
+Alternatively - the npm or bower package `pouchdb-browser` can be installed and required in the usual way. Note that the `pouchdb` package will always attempt to use a LevelDB adapter.
+
+```js
+import PouchDB from 'pouchdb-browser' 
+```
 
 Now `PouchDB` is available as a global variable. So you can create an IndexedDB-based PouchDB:
 
