@@ -47,13 +47,4 @@ var db = new PouchDB('mydb');
 
 However, you will have to rebuild the LevelDB binaries for Electron. The [demo app](https://github.com/nolanlawson/hello-electron-with-pouchdb) shows how to accomplish this.
 
-Basically you will need to run this script as a `postinstall` step:
-
-```bash
-cd node_modules/leveldown
-HOME=~/.electron-gyp node-gyp rebuild \
-  --target=0.29.1 --arch=x64 \
-  --dist-url=https://atom.io/download/atom-shell
-```
-
-If this doesn't work on your system, you can always use the IndexedDB/WebSQL adapters instead. The performance benefit from using LevelDB is (probably) minor.
+Basically you will need to run [electron-rebuild](https://github.com/paulcbetts/electron-rebuild) as a `postinstall` step. If you are unable to get this to work properly for all your target environments, then you may need to just stick with the in-browser IndexedDB or WebSQL adapters, and avoid the native LevelDB or SQLite (node-websql) adapters.
