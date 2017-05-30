@@ -49,4 +49,4 @@ However, you will have to rebuild the LevelDB binaries for Electron. The [demo a
 
 Basically you will need to run [electron-rebuild](https://github.com/paulcbetts/electron-rebuild) as a `postinstall` step. If you are unable to get this to work properly for all your target environments, then you may need to just stick with the in-browser IndexedDB or WebSQL adapters, and avoid the native LevelDB or SQLite (node-websql) adapters.
 
-**Note**: If you're getting an `IO Error:`/`OpenError` _after packaging_ your app, you'll need to make sure you set the database directory explicitly (using `require('path')` and `__dirname`, for example).
+**Note**: If you're getting an `IO Error:`/`OpenError` _after packaging_ your app, you'll need to make sure you set the database directory explicitly (using `require('path')` and `__dirname`, for example, like `new PouchDB(path.join(__dirname, 'mydb))`).
